@@ -4,7 +4,7 @@ import java.io.File
 
 fun main(args : Array<String>) {
     // Day 1
-    val inputOne: List<Int> = File("input/dec1/inputOne.txt").convertFileToArrayList() as List<Int>
+    val inputOne: List<Int> = File("input/dec1/dec1input.txt").convertFileToArrayList() as List<Int>
     println("Day 1!")
     println("The first assignment: " + Dec1().one(inputOne))
     println("The second assignment: " + Dec1().two(inputOne))

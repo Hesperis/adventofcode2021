@@ -27,9 +27,7 @@ class Dec2 {
             when(commandPair.first) {
                 "forward" ->  {
                     horizontalPosition = horizontalPosition.plus(commandPair.second)
-                    if (aim != 0) {
-                        depth = depth.plus(aim*commandPair.second)
-                    }
+                    depth = depth.plus(aim*commandPair.second)
                 }
                 "down" -> aim = aim.plus(commandPair.second)
                 "up" -> aim = aim.minus(commandPair.second)
@@ -42,7 +40,7 @@ class Dec2 {
     }
 }
 
-fun String.splitToPair(): Pair<String, Int> {
+private fun String.splitToPair(): Pair<String, Int> {
     val stringList = this.split(' ')
     return Pair(stringList[0], stringList[1].toInt())
 }
