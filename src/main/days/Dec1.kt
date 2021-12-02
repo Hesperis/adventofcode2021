@@ -1,6 +1,6 @@
 package days
 
-class First {
+class Dec1 {
     fun one(input: List<Int>): Int {
         val pairedMeasurements = mutableListOf<Pair<Int,Int>>()
         for (i in 1 until input.size) {
