@@ -3,12 +3,8 @@ package days
 class Dec3 {
     fun one(input: List<String>): Int {
         val bitList = getPairedBitList(input)
-        val gamma = bitList.map { pair ->
-            if (pair.first > pair.second) 0 else 1
-        }.joinToString("")
-        val epsilon = bitList.map { pair ->
-            if (pair.first < pair.second) 0 else 1
-        }.joinToString("")
+        val gamma = bitList.map { if (it.first > it.second) 0 else 1 }.joinToString("")
+        val epsilon = bitList.map { if (it.first < it.second) 0 else 1 }.joinToString("")
         return Integer.parseInt(gamma, 2) * Integer.parseInt(epsilon, 2)
     }
 
