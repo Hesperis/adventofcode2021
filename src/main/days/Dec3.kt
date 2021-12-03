@@ -18,7 +18,7 @@ class Dec3 {
         return Integer.parseInt(oxygen, 2) * Integer.parseInt(co2, 2)
     }
 
-    private tailrec fun findRecCandidate(input: List<String>, desired: Char, nonDesired: Char, position: Int): String {
+    private fun findRecCandidate(input: List<String>, desired: Char, nonDesired: Char, position: Int): String {
         return if (input.size == 1) input[0] else {
             var candidates = input
             val bitList = getPairedBitList(candidates)
