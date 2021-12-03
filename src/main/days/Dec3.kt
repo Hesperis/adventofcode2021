@@ -14,7 +14,7 @@ class Dec3 {
 
     fun two(input: List<String>): Int {
         val oxygen = findCandidate(input, '1', '0')
-        val co2 = findCandidate(input, desired = '0', '1')
+        val co2 = findCandidate(input, '0', '1')
         return Integer.parseInt(oxygen, 2) * Integer.parseInt(co2, 2)
     }
 
