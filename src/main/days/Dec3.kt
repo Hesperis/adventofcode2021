@@ -13,25 +13,22 @@ class Dec3 {
     }
 
     fun two(input: List<String>): Int {
-        val oxygen = findCandidate(input, '1', '0')
-        val co2 = findCandidate(input, '0', '1')
+        val oxygen = findRecCandidate(input, '1', '0', 0)
+        val co2 = findRecCandidate(input, '0', '1', 0)
         return Integer.parseInt(oxygen, 2) * Integer.parseInt(co2, 2)
     }
 
-    // Surely this can be done neater
-    private fun findCandidate(input: List<String>, desired: Char, nonDesired: Char): String {
-        var candidates = input
-        var position = 0
-        while (candidates.size > 1) {
+    private tailrec fun findRecCandidate(input: List<String>, desired: Char, nonDesired: Char, position: Int): String {
+        return if (input.size == 1) input[0] else {
+            var candidates = input
             val bitList = getPairedBitList(candidates)
             candidates = if (bitList[position].first > bitList[position].second) {
                 candidates.filter { it.toCharArray()[position] == desired }
             } else {
                 candidates.filter { it.toCharArray()[position] == nonDesired }
             }
-            position = position.inc()
+            findRecCandidate(candidates, desired, nonDesired, position.inc())
         }
-        return candidates[0]
     }
 
     // Creates a list of pairs with counts of 1 and 0 at matching positions
