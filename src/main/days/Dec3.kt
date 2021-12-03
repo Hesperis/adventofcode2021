@@ -29,8 +29,8 @@ class Dec3 {
 
     // Creates a list of pairs with counts of 1 and 0 at matching positions
     private fun getPairedBitList(input: List<String>): List<Pair<Int, Int>> {
-        val zeroBitList = createCorrectlySizedList(input[0])
-        val oneBitList = createCorrectlySizedList(input[0])
+        val zeroBitList = createCorrectlySizedList(arrayListOf(), input[0])
+        val oneBitList = createCorrectlySizedList(arrayListOf(), input[0])
         input.forEach { it.toCharArray()
             .forEachIndexed { position, char ->
                 when (char.digitToInt()) {
@@ -43,8 +43,7 @@ class Dec3 {
     }
 
     //Convenience function to ensure that the lists are created equal
-    private fun createCorrectlySizedList(template: String) : ArrayList<Int> {
-        val list: ArrayList<Int> = arrayListOf()
+    private fun createCorrectlySizedList(list: ArrayList<Int>, template: String) : ArrayList<Int> {
         repeat(template.toCharArray().count()) { list.add(0) }
         return list
     }
